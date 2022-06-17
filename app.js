@@ -480,8 +480,20 @@ io.on('connection', (sock) => {
                     }
 
                 });
-                
-                //stacker.try1 = data.result;
+
+                if (stacker.try1 != 0 && stacker.try2 != 0 && stacker.try3 != 0) {
+                    let arr = [];
+                    arr.push(stacker.try1);
+                    arr.push(stacker.try2);
+                    arr.push(stacker.try3);
+
+                    arr.sort(function(a,b) {
+                        return a - b;
+                    });
+
+                    stacker.best = arr[0];
+                    
+                }
             }
         });
 
@@ -491,8 +503,6 @@ io.on('connection', (sock) => {
             if (a.best === 0) return 1;        
             if (b.best === 0) return -1; 
             return a.best - b.best;
-            
-    
             
         });
     });
