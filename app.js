@@ -112,11 +112,8 @@ var allStackers = [stacker1, stacker2, stacker3, stacker4, stacker5,
 
 var dProperty = ["warm1", "warm2", "try1", "try2", "try3"];
 
-/* allStackers.sort(function(a,b) {
-    return a.best - b.best;
-});
 
-allStackers.forEach((stacker) => {
+/* allStackers.forEach((stacker) => {
     console.log(stacker.id)
 }); */
 
@@ -487,8 +484,17 @@ io.on('connection', (sock) => {
                 //stacker.try1 = data.result;
             }
         });
+
         
-        //console.log("Result = " + stacker1.try1);
+        allStackers.sort(function(a,b) {
+
+            if (a.best === 0) return 1;        
+            if (b.best === 0) return -1; 
+            return a.best - b.best;
+            
+    
+            
+        });
     });
 
     sock.on('manualAssign', (data) => {
