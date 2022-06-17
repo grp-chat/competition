@@ -4,7 +4,45 @@
 
 body{
     margin: 5px;
-    background-color: rgb(255, 177, 59);
+    background-color: #8bf18b;
+}
+
+.main-div{
+    position: absolute;
+    top: 5%;
+    left: 3%;
+
+}
+
+input {
+    border-radius: 5px;
+    padding: 3px 3px;
+}
+
+button {
+    border-radius: 5px;
+    padding: 3px 3px;
+}
+
+table {
+    position: absolute;
+    border: 1px solid #bdc3c7;
+    background-color: white;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    left: 3%;
+    width: 300px;
+    
+}
+
+th,td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#header {
+    background-color: #16a085;
+    color: #fff;
 }
 
 .Container{
