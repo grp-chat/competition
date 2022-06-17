@@ -574,6 +574,9 @@ saveResult.addEventListener("click", () => {
     if (result != 0) {
         saveResult.disabled = true;
     }
+    if (nickname === "TCR") {
+        saveResult.disabled = false;
+    }
 });
 
 var save2 = document.getElementById("saveTry2");
@@ -589,6 +592,9 @@ save2.addEventListener("click", () => {
     if (result != 0) {
         save2.disabled = true;
     }
+    if (nickname === "TCR") {
+        save2.disabled = false;
+    }
 });
 
 var save3 = document.getElementById("saveTry3");
@@ -603,6 +609,9 @@ save3.addEventListener("click", () => {
     sock.emit('chat-to-server', text);
     if (result != 0) {
         save3.disabled = true;
+    }
+    if (nickname === "TCR") {
+        save3.disabled = false;
     }
     
 });
