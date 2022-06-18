@@ -8,7 +8,7 @@ function Pairing(judge, stacker) {
 var pair1 = new Pairing("LXR", "TJY");
 var pair2 = new Pairing("TJY", "LK");
 var pair3 = new Pairing("LK", "JV");
-var pair4 = new Pairing("JV", "JL");
+var pair4 = new Pairing("JV", "SZF");
 var pair5 = new Pairing("JL", "JHA");
 var pair6 = new Pairing("JHA", "LXR");
 var pair7 = new Pairing("SZF", "H");
