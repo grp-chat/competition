@@ -112,7 +112,6 @@ var allStackers = [stacker1, stacker2, stacker3, stacker4, stacker5,
 
 var dProperty = ["warm1", "warm2", "try1", "try2", "try3"];
 
-
 /* allStackers.forEach((stacker) => {
     console.log(stacker.id)
 }); */
