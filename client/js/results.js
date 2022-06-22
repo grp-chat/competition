@@ -202,6 +202,9 @@ sock.on('chgEventClients', data => {
             activeTable = allTables[index];
         }
     });
+
+    setTimeout('',5000);
+    sock.emit('resetResults');
 });
 
 

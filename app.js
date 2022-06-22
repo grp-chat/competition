@@ -112,6 +112,8 @@ var allStackers = [stacker1, stacker2, stacker3, stacker4, stacker5,
 
 var dProperty = ["warm1", "warm2", "try1", "try2", "try3"];
 
+var theEvent = "333Prelim";
+
 /* allStackers.forEach((stacker) => {
     console.log(stacker.id)
 }); */
@@ -513,8 +515,17 @@ io.on('connection', (sock) => {
     });
 
     sock.on('changeEvent', (data) => {
-        var theEvent = data;
+        theEvent = data;
         io.emit('chgEventClients', theEvent);
+    });
+
+    sock.on('resetResults', () => {
+        allStackers.forEach((stacker) => {
+            stacker.try1 = 0;
+            stacker.try2 = 0;
+            stacker.try3 = 0;
+            stacker.best = 0;
+        })
     });
 
 
@@ -552,6 +563,7 @@ setInterval(function () {
     io.emit('updateNN', ninaWins); */
 
     io.emit('postResult', allStackers);
+    io.emit('chgH1Clients', theEvent);
 
 }, 1000);
 

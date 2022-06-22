@@ -434,7 +434,7 @@ function appendMessage(message) {
 }
 
 function validOrNot(result) {
-    if (result < 6.9 || result > 999.999) {
+    if (result < 1.5 || result > 999.999) {
         alert("Invalid result");
         result = 0;
     }
@@ -551,7 +551,11 @@ sock.on('findJudge', data => {
 });
 
 sock.on('chgEventClients', data => {
-    routineH1.innerHTML = data;
+    routineH1.innerHTML = "Event: " + data;
+});
+
+sock.on('chgH1Clients', data => {
+    routineH1.innerHTML = "Event: " + data;
 });
 
 
