@@ -512,6 +512,11 @@ io.on('connection', (sock) => {
         io.emit('findJudge', { judge, stacker});
     });
 
+    sock.on('changeEvent', (data) => {
+        var theEvent = data;
+        io.emit('chgEventClients', theEvent);
+    });
+
 
 
 });

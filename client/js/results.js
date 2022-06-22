@@ -9,7 +9,8 @@ const table5 = document.getElementById("table5");
 const table6 = document.getElementById("table6");
 
 
-var allTables = [table, table2, table3, table4, table5, table6]
+var allTables = [table, table2, table3, table4, table5, table6];
+var allEvents = ["333Prelim", "333Final", "363Prelim", "363Final", "CyclePrelim", "CycleFinal"];
 var activeTable = table;
 var allStackers = [];
 
@@ -193,6 +194,14 @@ sock.on('postResult', data => {
 
 sock.on('chat-to-clients', data => {
     appendMessage(data);
+});
+
+sock.on('chgEventClients', data => {
+    allEvents.forEach((evt, index) => {
+        if (data === evt) {
+            activeTable = allTables[index];
+        }
+    });
 });
 
 

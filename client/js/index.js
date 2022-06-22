@@ -21,6 +21,8 @@ var pairArr = [pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8];
 var stu = ["LXR", "TJY", "LK", "SZF", "JV", "JL", "JHA", "H"];
 var stu2 = ["LXR", "TJY", "LK", "SZF", "JV", "JL", "JHA", "H"];
 
+var allEvents = ["333Prelim", "333Final", "363Prelim", "363Final", "CyclePrelim", "CycleFinal"]
+
 var assignment = "LXR";
 var judgeH1 = document.getElementById("judgeH1");
 var stackerH1 = document.getElementById("stackerH1");
@@ -398,6 +400,15 @@ function appendMessage(message) {
         sock.emit('chat-to-server', text);
     }
 
+    allEvents.forEach((evt) => {
+        if (message === "TCR: Set event to " + evt && nickname === "TCR") {
+            let text = "Event changed to " + evt;
+            sock.emit('chat-to-server', text);
+            sock.emit("changeEvent", evt);
+        }
+        
+    });
+
     stu.forEach((student) => {
         if (message === "TCR: assign " + student + " to me" && nickname === "TCR") {
             let text = student + " assigned to TCR successfully";
@@ -537,6 +548,10 @@ sock.on('findJudge', data => {
         let text = assignment + " assigned to " + nickname + " successfully";
         sock.emit('chat-to-server', text);
     }
+});
+
+sock.on('chgEventClients', data => {
+    routineH1.innerHTML = data;
 });
 
 
