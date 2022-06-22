@@ -2,6 +2,15 @@ const sock = io();
 
 var changesMade = false;
 const table = document.getElementById("table");
+const table2 = document.getElementById("table2");
+const table3 = document.getElementById("table3");
+const table4 = document.getElementById("table4");
+const table5 = document.getElementById("table5");
+const table6 = document.getElementById("table6");
+
+
+var allTables = [table, table2, table3, table4, table5, table6]
+var activeTable = table;
 var allStackers = [];
 
 
@@ -41,18 +50,23 @@ allPos = [pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10]
 
 var j = 0;
 for (var i = 1; i <= 10; i++) {
-    allRows[i] = table.insertRow(i);
-    allCells[j] = allRows[i].insertCell(0);
-    allCells[j].innerHTML = i;
-    j++;
-    allCells[j] = allRows[i].insertCell(1);
-    j++;
-    allCells[j] = allRows[i].insertCell(2);
-    j++;
+    allTables.forEach((table) => {
+        allRows[i] = table.insertRow(i);
+        allCells[j] = allRows[i].insertCell(0);
+        allCells[j].innerHTML = i;
+        j++;
+        allCells[j] = allRows[i].insertCell(1);
+        j++;
+        allCells[j] = allRows[i].insertCell(2);
+        j++;
+    });
+
 
     //cell1.innerHTML = i;
 
 }
+
+table.rows[1].cells[1].innerHTML = "test";
 
 /* var row = table.insertRow(1);
 var cell1 = row.insertCell(0);
@@ -165,13 +179,14 @@ sock.on('postResult', data => {
 
     allStackers = data;
 
-    var j = 1;
+    
     for (var i = 0; i < allStackers.length; i++) {
-        allCells[j].innerHTML = allStackers[i].id;
+        var j = 1;
+        
+        activeTable.rows[i+1].cells[j].innerHTML = allStackers[i].id;
         j++;
-        allCells[j].innerHTML = allStackers[i].best;
-        j++;
-        j++;
+        activeTable.rows[i+1].cells[j].innerHTML = allStackers[i].best;
+         
     }
 
 });
