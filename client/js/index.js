@@ -8,11 +8,11 @@ function Pairing(judge, stacker) {
 var pair1 = new Pairing("LXR", "LK");
 var pair2 = new Pairing("TJY", "LK");
 var pair3 = new Pairing("LK", "JV");
-var pair4 = new Pairing("JV", "H");
-var pair5 = new Pairing("H", "JHA");
-var pair6 = new Pairing("JHA", "SZF");
-var pair7 = new Pairing("SZF", "LXR");
-var pair8 = new Pairing("TJY", "LK");
+var pair4 = new Pairing("JV", "JL");
+var pair5 = new Pairing("JL", "H");
+var pair6 = new Pairing("H", "JHA");
+var pair7 = new Pairing("JHA", "SZF");
+var pair8 = new Pairing("SZF", "LXR");
 /* var pair9 = new Pairing("", "");
 var pair10 = new Pairing("", ""); */
 
